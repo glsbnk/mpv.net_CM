@@ -1,5 +1,5 @@
 
-![](docs/img/mpvnet.png)
+![](IMG/mpvnet.png)
 
 # 主页
 
@@ -44,19 +44,19 @@ mpv.conf尽量使用图形编辑器修改选项，自行编辑mpv.conf文件将�
 ## 预览
 
 多功能右键菜单  
-![](_Temp/contextmenu.jpg)
+![](IMG/contextmenu.webp)
 
 图形化编辑器  
-![](_Temp/editors.jpg)
+![](IMG/editors.webp)
 
 两种播放列表  
-![](_Temp/playlists.jpg)
+![](IMG/playlists.webp)
 
 快捷指令和富媒体信息  
-![](_Temp/command&mediainfo.jpg)
+![](IMG/command&mediainfo.webp)
 
 关于  
-![](_Temp/about.jpg)
+![](IMG/about.webp)
 
 
 ## 极简的程序使用介绍
@@ -70,12 +70,12 @@ mpv.conf尽量使用图形编辑器修改选项，自行编辑mpv.conf文件将�
 mpv.conf中的选项会被图形编辑器强制覆盖，所以尽可能从图形界面修改参数；  
 无需autoload脚本（功能重合）。theme.conf可实现主题配色自定义（自行备份）。input.conf可进行菜单自定义（自行备份）
 
-## 右键菜单客制化
+### 右键菜单客制化
 
-基础说明见input.conf的最上方文本。
+mpv.net拥有一个可自定义的右键菜单，只需简单修改 input.conf 文件即可。
 
 与原版mpv的快捷键自定义相似，结构为 “键位   参数   #注释” （原版mpv的快捷键修改参考 [此处](https://hooke007.github.io/#系列手册) 手册05）  
-不同的是：1.这里的注释部分遵循基本语法就可以映射成菜单中的选项。2.映射到菜单的参数可以不绑键位
+不同的是：1.这里的注释部分遵循简单语法就可以映射成菜单中的对应选项。2.映射到菜单的参数可以不绑键位
 
 举例：
 ```
@@ -87,15 +87,31 @@ W   set speed 2  #menu: 二倍速
 若想将某个选项放在二级甚至三级，只需要叠加这个符号 > 即可，  
 例如修改为 `#menu: 文件 > 二倍速` （注意全角半角、空格的存在）即可将这个选项放在文件的子选项中。
 
-#----------------------------------#
-
-p.s.以下特例为菜单中的分隔线
+p.s.以下特例为菜单中的分隔线（用在哪一级的分隔线，注释就到哪一级）
 ```
 _   ignore   #menu: -
 ```
-用在哪一级的分隔线，注释就到哪一级
 
-## vo_placebo
+当然，不写注释或不按此语法注释便不会出现在菜单中，不必担心右键菜单会被自行定义的所有快捷键占满。
+
+### 兼容 SVP Manager
+
+mpv.net_CM版提供了对 [SVP Manager](https://www.svp-team.com/get/) 的播放相关功能的支持。
+
+1. 打开mpv.net_CM的右键菜单-“工具”-“mpv.conf编辑器” —— 左侧“高级”-“input-ipc-server”输入 `mpvpipe`
+关闭重启程序
+![](IMG/svpm-01.webp)
+
+2. 运行 **SVP 4 Pro** ，请检查你的svp客户端存在相关必要组件（工具-高级功能-添加或移除组件）： `mpv shared library`
+没有则安装重启程序
+![](IMG/svpm-02.webp)
+
+3. 保持 **SVP 4 Pro** 开启，调整好你所要使用的配置， mpv.net_CM 正常加载视频文件即可
+
+### vo_placebo
 
 对libplacebo渲染器进行了实验性支持  
-使用 [此处](https://github.com/hooke007/mpv/releases/tag/beta) 的libmpv替换原版内核即可测试placebo的相关选项
+mpv中 vo_placebo 作为 vo_gpu 的继任者正在开发测试中
+
+使用 [此处](https://github.com/hooke007/mpv/releases/tag/beta) 的libmpv替换原版内核即可测试placebo的相关选项  
+_如果不清楚这是什么请不要尝试_
