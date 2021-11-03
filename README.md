@@ -107,11 +107,3 @@ mpv.net_CM版提供了对 [SVP Manager](https://www.svp-team.com/get/) 的播放
 ![](IMG/svpm-02.webp)
 
 3. 保持 **SVP 4 Pro** 开启，调整好你所要使用的配置， mpv.net_CM 正常加载视频文件即可
-
-### vo_placebo
-
-对libplacebo渲染器进行了实验性支持  
-mpv中 vo_placebo 作为 vo_gpu 的继任者正在开发测试中
-
-使用 [此处](https://github.com/hooke007/mpv/releases/tag/beta) 的libmpv替换原版内核即可测试placebo的相关选项  
-_如果不清楚这是什么请不要尝试_
